@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
-import 'package:purse_mobile/features/welcome_view/presentation/welcome_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/authentication_view.dart';
 
 class SplashView extends StatefulWidget {
   static const route = '/SplashView';
@@ -19,7 +19,7 @@ class _SplashViewState extends State<SplashView> {
       const Duration(seconds: 3),
       () {
         // ignore: use_build_context_synchronously
-        context.pushNamed(WelcomeView.routeName);
+        context.pushNamed(AuthenticationView.routeName);
       },
     );
   }

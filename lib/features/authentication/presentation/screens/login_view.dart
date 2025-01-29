@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
 import 'package:purse_mobile/core/widgets/custom_button.dart';
 import 'package:purse_mobile/core/widgets/custom_textformfield.dart';
-import 'package:purse_mobile/features/signup/presentation/signup_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/screens/forgot_password_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/screens/signup_view.dart';
 
 class LoginView extends StatefulWidget {
   static const route = 'LoginView';
@@ -73,9 +74,10 @@ class _LoginViewState extends State<LoginView> {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () =>
+                      context.pushNamed(ForgotPasswordView.routeName),
                   child: Text(
-                    'Forgot Password',
+                    'Forgot Password?',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,

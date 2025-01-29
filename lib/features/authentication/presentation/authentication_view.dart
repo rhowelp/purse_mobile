@@ -3,19 +3,19 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
 import 'package:purse_mobile/core/widgets/custom_button.dart';
-import 'package:purse_mobile/features/login/presentation/login_view.dart';
-import 'package:purse_mobile/features/signup/presentation/signup_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/screens/login_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/screens/signup_view.dart';
 
-class WelcomeView extends StatefulWidget {
-  static const route = '/WelcomeView';
-  static const routeName = 'WelcomeView';
-  const WelcomeView({super.key});
+class AuthenticationView extends StatefulWidget {
+  static const route = '/AuthenticationView';
+  static const routeName = 'AuthenticationView';
+  const AuthenticationView({super.key});
 
   @override
-  State<WelcomeView> createState() => _WelcomeViewState();
+  State<AuthenticationView> createState() => _AuthenticationViewState();
 }
 
-class _WelcomeViewState extends State<WelcomeView> {
+class _AuthenticationViewState extends State<AuthenticationView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

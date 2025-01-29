@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:purse_mobile/features/welcome_view/presentation/welcome_view.dart';
-import 'package:purse_mobile/features/login/presentation/login_view.dart';
-import 'package:purse_mobile/features/signup/presentation/signup_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/authentication_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/screens/forgot_password_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/screens/login_view.dart';
+import 'package:purse_mobile/features/authentication/presentation/screens/signup_view.dart';
 import 'package:purse_mobile/features/splash_view/presentation/splash_view.dart';
 
 class MainRouter {
@@ -34,9 +35,9 @@ class MainRouter {
           ),
         ),
         GoRoute(
-          path: WelcomeView.route,
-          name: WelcomeView.routeName,
-          builder: (context, state) => const WelcomeView(),
+          path: AuthenticationView.route,
+          name: AuthenticationView.routeName,
+          builder: (context, state) => const AuthenticationView(),
           routes: [
             GoRoute(
               path: LoginView.route,
@@ -47,6 +48,11 @@ class MainRouter {
               path: SignupView.route,
               name: SignupView.routeName,
               builder: (context, state) => const SignupView(),
+            ),
+            GoRoute(
+              path: ForgotPasswordView.route,
+              name: ForgotPasswordView.routeName,
+              builder: (context, state) => const ForgotPasswordView(),
             ),
           ],
         ),
