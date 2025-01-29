@@ -1,4 +1,4 @@
-package com.example.purse_mobile
+package com.purse.app
 
 import io.flutter.embedding.android.FlutterActivity
 
