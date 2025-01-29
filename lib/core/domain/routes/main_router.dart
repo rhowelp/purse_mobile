@@ -5,6 +5,7 @@ import 'package:purse_mobile/features/authentication/presentation/authentication
 import 'package:purse_mobile/features/authentication/presentation/screens/forgot_password_view.dart';
 import 'package:purse_mobile/features/authentication/presentation/screens/login_view.dart';
 import 'package:purse_mobile/features/authentication/presentation/screens/signup_view.dart';
+import 'package:purse_mobile/features/homepage/presentation/homepage_view.dart';
 import 'package:purse_mobile/features/splash_view/presentation/splash_view.dart';
 
 class MainRouter {
@@ -55,6 +56,11 @@ class MainRouter {
               builder: (context, state) => const ForgotPasswordView(),
             ),
           ],
+        ),
+        GoRoute(
+          path: HomepageView.route,
+          name: HomepageView.routeName,
+          builder: (context, state) => const HomepageView(),
         ),
       ],
     );

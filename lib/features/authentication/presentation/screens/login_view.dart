@@ -7,6 +7,7 @@ import 'package:purse_mobile/core/widgets/custom_button.dart';
 import 'package:purse_mobile/core/widgets/custom_textformfield.dart';
 import 'package:purse_mobile/features/authentication/presentation/screens/forgot_password_view.dart';
 import 'package:purse_mobile/features/authentication/presentation/screens/signup_view.dart';
+import 'package:purse_mobile/features/homepage/presentation/homepage_view.dart';
 
 class LoginView extends StatefulWidget {
   static const route = 'LoginView';
@@ -87,7 +88,9 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               CustomButton(
-                onTap: () {},
+                onTap: () {
+                  context.goNamed(HomepageView.routeName);
+                },
                 buttonText: 'Login',
                 titleColor: Colors.black,
               ),
