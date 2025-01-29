@@ -23,7 +23,14 @@ class _HomepageViewState extends State<HomepageView> {
       extendBody: true,
       backgroundColor: ColorPalette.homeBackgroundColor,
       bottomNavigationBar: FloatingNavbar(
-        onTap: (int val) => setState(() => _selectedIndex = val),
+        onTap: (int val) => setState(() {
+          pageController.animateToPage(
+            val,
+            duration: Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+          _selectedIndex = val;
+        }),
         currentIndex: _selectedIndex,
         borderRadius: 40,
         items: [
@@ -40,8 +47,10 @@ class _HomepageViewState extends State<HomepageView> {
       ),
       body: PageView(
         controller: pageController,
-        onPageChanged: (v) {
-          setState(() {});
+        onPageChanged: (val) {
+          setState(() {
+            _selectedIndex = val;
+          });
         },
         children: const [
           Center(
