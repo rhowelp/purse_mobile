@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:purse_mobile/features/authentication/authentication_view.dart';
 import 'package:purse_mobile/features/splash_view/splash_view.dart';
 
 class MainRouter {
@@ -29,6 +30,11 @@ class MainRouter {
                   child: child);
             },
           ),
+        ),
+        GoRoute(
+          path: AuthenticationView.route,
+          name: AuthenticationView.routeName,
+          builder: (context, state) => const AuthenticationView(),
         ),
       ],
     );

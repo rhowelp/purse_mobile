@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      routerConfig: router,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       debugShowCheckedModeBanner: false,
