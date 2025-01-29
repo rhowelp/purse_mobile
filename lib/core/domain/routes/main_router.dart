@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:purse_mobile/features/authentication/authentication_view.dart';
-import 'package:purse_mobile/features/splash_view/splash_view.dart';
+import 'package:purse_mobile/features/welcome_view/presentation/welcome_view.dart';
+import 'package:purse_mobile/features/login/presentation/login_view.dart';
+import 'package:purse_mobile/features/signup/presentation/signup_view.dart';
+import 'package:purse_mobile/features/splash_view/presentation/splash_view.dart';
 
 class MainRouter {
   static GoRouter router() {
@@ -32,9 +34,21 @@ class MainRouter {
           ),
         ),
         GoRoute(
-          path: AuthenticationView.route,
-          name: AuthenticationView.routeName,
-          builder: (context, state) => const AuthenticationView(),
+          path: WelcomeView.route,
+          name: WelcomeView.routeName,
+          builder: (context, state) => const WelcomeView(),
+          routes: [
+            GoRoute(
+              path: LoginView.route,
+              name: LoginView.routeName,
+              builder: (context, state) => const LoginView(),
+            ),
+            GoRoute(
+              path: SignupView.route,
+              name: SignupView.routeName,
+              builder: (context, state) => const SignupView(),
+            ),
+          ],
         ),
       ],
     );

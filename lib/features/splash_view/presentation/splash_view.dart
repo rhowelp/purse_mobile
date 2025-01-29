@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
-import 'package:purse_mobile/features/authentication/authentication_view.dart';
+import 'package:purse_mobile/features/welcome_view/presentation/welcome_view.dart';
 
 class SplashView extends StatefulWidget {
   static const route = '/SplashView';
@@ -15,17 +15,18 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   Future<void> redirect() async {
-    context.pushNamed(AuthenticationView.routeName);
+    await Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        // ignore: use_build_context_synchronously
+        context.pushNamed(WelcomeView.routeName);
+      },
+    );
   }
 
   @override
   void initState() {
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        redirect();
-      },
-    );
+    redirect();
 
     super.initState();
   }
