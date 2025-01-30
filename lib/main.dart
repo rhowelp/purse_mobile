@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        textTheme: GoogleFonts.epilogueTextTheme(),
+        textTheme: GoogleFonts.interTextTheme(),
       ),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
