@@ -41,14 +41,14 @@ class _AuthenticationViewState extends State<AuthenticationView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomButton(
-                      onTap: () => context.goNamed(LoginView.routeName),
+                      onTap: () => context.pushNamed(LoginView.routeName),
                       buttonColor: Colors.white,
                       titleColor: ColorPalette.primary,
                       buttonText: 'Login',
                     ),
                     const Gap(20),
                     CustomButton(
-                      onTap: () => context.goNamed(SignupView.routeName),
+                      onTap: () => context.pushNamed(SignupView.routeName),
                       buttonText: 'New to Purse? Sign Up!',
                     ),
                   ],

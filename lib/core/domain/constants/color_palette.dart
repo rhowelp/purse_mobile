@@ -8,6 +8,7 @@ class ColorPalette {
   static const Color primary = Color(0xFF5AE185);   // Primary color
   static const Color primaryLight = Color(0xFFB4F1CD); // Primary light color
   static const Color primaryShade = Color(0xFF46C974); // Primary shade color
+  static const Color primaryDark = Color(0xFF19574A); // Primary dark color
   static const Color grey = Color(0xFF979797);      // Grey color
 
   // Additional colors
