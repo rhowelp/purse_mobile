@@ -6,6 +6,7 @@ import 'package:intl_phone_number_field/intl_phone_number_field.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
 import 'package:purse_mobile/core/widgets/custom_button.dart';
 import 'package:purse_mobile/core/widgets/custom_textformfield.dart';
+import 'package:purse_mobile/features/authentication/presentation/screens/login_view.dart';
 
 class SignupView extends StatefulWidget {
   static const route = 'SignupView';
@@ -227,7 +228,8 @@ class _SignupViewState extends State<SignupView> {
                                       color: ColorPalette.primary,
                                     ),
                                     recognizer: TapGestureRecognizer()
-                                      ..onTap = () => context.pop(),
+                                      ..onTap = () =>
+                                          context.goNamed(LoginView.routeName),
                                   ),
                                 ],
                               ),
