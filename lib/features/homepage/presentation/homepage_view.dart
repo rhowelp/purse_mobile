@@ -3,6 +3,7 @@ import 'package:iconly/iconly.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
 import 'package:purse_mobile/core/widgets/floating_navbar.dart';
 import 'package:purse_mobile/core/widgets/floating_navbar_item.dart';
+import 'package:purse_mobile/features/budgets/presentation/budgets_view.dart';
 import 'package:purse_mobile/features/dashboard/presentation/dashboard_view.dart';
 
 class HomepageView extends StatefulWidget {
@@ -55,9 +56,7 @@ class _HomepageViewState extends State<HomepageView> {
         },
         children: const [
           DashboardView(),
-          Center(
-            child: Text('Budgets'),
-          ),
+          BudgetsView(),
           Center(
             child: Text('Accounts'),
           ),

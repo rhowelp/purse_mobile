@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
 
 class DashboardView extends StatefulWidget {
@@ -23,14 +22,6 @@ class _DashboardViewState extends State<DashboardView> {
       backgroundColor: ColorPalette.homeBackgroundColor,
       body: Column(
         children: [
-          // Stack(
-          //   children: [
-          //     Image.asset(
-          //       'assets/images/home_top_background.png',
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ],
-          // ),
           Container(
             height: 350,
             decoration: BoxDecoration(
