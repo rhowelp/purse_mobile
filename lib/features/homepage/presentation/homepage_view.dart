@@ -47,26 +47,29 @@ class _HomepageViewState extends State<HomepageView> {
           FloatingNavbarItem(icon: IconlyBold.profile, title: 'Profile'),
         ],
       ),
-      body: PageView(
-        controller: pageController,
-        onPageChanged: (val) {
-          setState(() {
-            _selectedIndex = val;
-          });
-        },
-        children: const [
-          DashboardView(),
-          BudgetsView(),
-          Center(
-            child: Text('Accounts'),
-          ),
-          Center(
-            child: Text('Setting'),
-          ),
-          Center(
-            child: Text('Profile'),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.only(bottom: 100),
+        child: PageView(
+          controller: pageController,
+          onPageChanged: (val) {
+            setState(() {
+              _selectedIndex = val;
+            });
+          },
+          children: const [
+            DashboardView(),
+            BudgetsView(),
+            Center(
+              child: Text('Accounts'),
+            ),
+            Center(
+              child: Text('Setting'),
+            ),
+            Center(
+              child: Text('Profile'),
+            ),
+          ],
+        ),
       ),
     );
   }
