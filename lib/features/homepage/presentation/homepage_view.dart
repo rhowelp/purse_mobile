@@ -5,6 +5,7 @@ import 'package:purse_mobile/core/widgets/floating_navbar.dart';
 import 'package:purse_mobile/core/widgets/floating_navbar_item.dart';
 import 'package:purse_mobile/features/budgets/presentation/budgets_view.dart';
 import 'package:purse_mobile/features/dashboard/presentation/dashboard_view.dart';
+import 'package:purse_mobile/features/transactions/presentation/transactions_view.dart';
 
 class HomepageView extends StatefulWidget {
   static const route = '/HomepageView';
@@ -59,9 +60,7 @@ class _HomepageViewState extends State<HomepageView> {
           children: const [
             DashboardView(),
             BudgetsView(),
-            Center(
-              child: Text('Accounts'),
-            ),
+            TransactionsView(),
             Center(
               child: Text('Setting'),
             ),
