@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
+import 'package:purse_mobile/features/transactions/data/models/transaction_model.dart';
 
 class TransactionsView extends StatefulWidget {
   const TransactionsView({super.key});
@@ -24,6 +25,63 @@ class BarData {
 class _TransactionsViewState extends State<TransactionsView> {
   bool isBalanceShow = true;
   bool isFilterExpanded = false;
+
+  List<Transaction> transactions = [
+    Transaction(
+      title: "Bills",
+      account: "BDO",
+      time: "8:51 AM",
+      location: "Pasig City",
+      amount: 16000,
+      type: "Cash",
+      icon: "assets/icons/svg/cash_active.svg",
+    ),
+    Transaction(
+      title: "Bills",
+      account: "BPI",
+      time: "8:51 AM",
+      location: "Pasig City",
+      amount: 19000,
+      type: "Cash",
+      icon: "assets/icons/svg/cash_active.svg",
+    ),
+    Transaction(
+      title: "Bills",
+      account: "GCash",
+      time: "8:51 AM",
+      location: "Pasig City",
+      amount: 8000,
+      type: "Digital",
+      icon: "assets/icons/svg/digital_active.svg",
+    ),
+    Transaction(
+      title: "Bills",
+      account: "GCash",
+      time: "8:51 AM",
+      location: "Pasig City",
+      amount: 4000,
+      type: "Digital",
+      icon: "assets/icons/svg/digital_active.svg",
+    ),
+    Transaction(
+      title: "Bills",
+      account: "GCash",
+      time: "8:51 AM",
+      location: "Pasig City",
+      amount: 2000,
+      type: "Digital",
+      icon: "assets/icons/svg/digital_active.svg",
+    ),
+    Transaction(
+      title: "Bills",
+      account: "GCash",
+      time: "8:51 AM",
+      location: "Pasig City",
+      amount: 3000,
+      type: "Credit",
+      icon: "assets/icons/svg/credit_active.svg",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -265,14 +323,85 @@ class _TransactionsViewState extends State<TransactionsView> {
                         ),
                       ],
                     ),
-                    const Gap(20),
-                    Column(
-                      children: [
-                        _buildTransactionsCard(
-                          title: 'Set Primary Budget',
-                          onPressed: () {},
-                        ),
-                      ],
+                    const Gap(10),
+                    ListView.separated(
+                      shrinkWrap: true,
+                      padding: EdgeInsets.zero,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: transactions.length,
+                      separatorBuilder: (context, index) => const Gap(10),
+                      itemBuilder: (context, index) {
+                        final transaction = transactions[index];
+
+                        // Define color based on transaction type
+                        Color amountColor;
+                        switch (transaction.type) {
+                          case "Digital":
+                            amountColor = Colors.blue;
+                            break;
+                          case "Cash":
+                            amountColor = ColorPalette.red;
+                            break;
+                          case "Credit":
+                            amountColor = Colors.red;
+                            break;
+                          default:
+                            amountColor = Colors.black;
+                        }
+
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.1),
+                                blurRadius: 5,
+                                spreadRadius: 1,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: ListTile(
+                            leading: SvgPicture.asset(transaction.icon),
+                            title: Text(
+                              transaction.title,
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14,
+                              ),
+                            ),
+                            subtitle: Text(
+                              "${transaction.account} • ${transaction.time} • ${transaction.location}",
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 10,
+                              ),
+                            ),
+                            trailing: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "₱${transaction.amount.toStringAsFixed(0)}",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: amountColor,
+                                  ),
+                                ),
+                                Text(
+                                  transaction.type,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: amountColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     const Gap(20),
                   ],
