@@ -140,7 +140,7 @@ ItemBuilder _defaultItemBuilder({
                       ? (width / items.length - 8)
                       : MediaQuery.of(context).size.width / items.length - 24,
                   padding: EdgeInsets.symmetric(
-                      horizontal: 4, vertical: item.title != null ? 4 : 8),
+                      horizontal: 2, vertical: item.title != null ? 4 : 8),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,

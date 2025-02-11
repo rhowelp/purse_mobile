@@ -45,8 +45,8 @@ class _HomepageViewState extends State<HomepageView> {
               'assets/icons/center_navbar.png',
             ),
           ),
+          FloatingNavbarItem(icon: IconlyBold.profile, title: 'Accounts'),
           FloatingNavbarItem(icon: IconlyBold.setting, title: 'Settings'),
-          FloatingNavbarItem(icon: IconlyBold.profile, title: 'Profile'),
         ],
       ),
       body: Padding(
@@ -63,10 +63,10 @@ class _HomepageViewState extends State<HomepageView> {
             BudgetsView(),
             TransactionsView(),
             Center(
-              child: Text('Setting'),
+              child: Text('Accounts'),
             ),
             Center(
-              child: Text('Profile'),
+              child: Text('Settings'),
             ),
           ],
         ),
