@@ -1,12 +1,14 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive/hive.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
 import 'package:purse_mobile/features/transactions/data/models/transaction_model.dart';
+import 'package:purse_mobile/features/transactions/presentation/widgets/account_bottom_sheet.dart';
+import 'package:purse_mobile/features/transactions/presentation/widgets/category_bottom_sheet.dart';
+import 'package:purse_mobile/features/transactions/presentation/widgets/date_bottom_sheet.dart';
+
+enum BottomSheetType { category, dateFilter, account }
 
 class TransactionsView extends StatefulWidget {
   const TransactionsView({super.key});
@@ -82,6 +84,27 @@ class _TransactionsViewState extends State<TransactionsView> {
       icon: "assets/icons/svg/credit_active.svg",
     ),
   ];
+
+  void showCustomBottomSheet(BuildContext context, BottomSheetType type) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        switch (type) {
+          case BottomSheetType.category:
+            return CategoryBottomSheet();
+          case BottomSheetType.dateFilter:
+            return DateFilterBottomSheet();
+          case BottomSheetType.account:
+            return AccountBottomSheet();
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -313,10 +336,32 @@ class _TransactionsViewState extends State<TransactionsView> {
                             scrollDirection: Axis.horizontal,
                             child: Row(
                               children: [
-                                _filterOption(text: "Amount", isIcon: true),
-                                _filterOption(text: "Category"),
-                                _filterOption(text: "Account"),
-                                _filterOption(text: "Date Range"),
+                                _filterOption(
+                                  text: "Amount",
+                                  isIcon: true,
+                                  onPressed: () {},
+                                ),
+                                _filterOption(
+                                  text: "Category",
+                                  onPressed: () {
+                                    showCustomBottomSheet(
+                                        context, BottomSheetType.category);
+                                  },
+                                ),
+                                _filterOption(
+                                  text: "Account",
+                                  onPressed: () {
+                                    showCustomBottomSheet(
+                                        context, BottomSheetType.account);
+                                  },
+                                ),
+                                _filterOption(
+                                  text: "Date Range",
+                                  onPressed: () {
+                                    showCustomBottomSheet(
+                                        context, BottomSheetType.dateFilter);
+                                  },
+                                ),
                               ],
                             ),
                           ),
@@ -414,7 +459,10 @@ class _TransactionsViewState extends State<TransactionsView> {
     );
   }
 
-  Widget _filterOption({required String text, bool isIcon = false}) {
+  Widget _filterOption(
+      {required String text,
+      bool isIcon = false,
+      required Function() onPressed}) {
     return AnimatedOpacity(
       duration: Duration(milliseconds: 300),
       opacity: isFilterExpanded ? 1 : 0,
@@ -422,7 +470,7 @@ class _TransactionsViewState extends State<TransactionsView> {
         padding: const EdgeInsets.symmetric(horizontal: 3),
         child: isIcon
             ? IconButton(
-                onPressed: () {},
+                onPressed: onPressed,
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
@@ -435,7 +483,7 @@ class _TransactionsViewState extends State<TransactionsView> {
                 icon: Icon(Icons.swap_vert_outlined),
               )
             : ElevatedButton(
-                onPressed: () {},
+                onPressed: onPressed,
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -446,47 +494,6 @@ class _TransactionsViewState extends State<TransactionsView> {
                 ),
                 child: Text(text),
               ),
-      ),
-    );
-  }
-
-  Widget _buildTransactionsCard({
-    required String title,
-    required Function() onPressed,
-  }) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        padding: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: ColorPalette.grey.withOpacity(0.1),
-              blurRadius: 25,
-              spreadRadius: 0,
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            SvgPicture.asset(
-              'assets/icons/svg/cash_active.svg',
-            ),
-            const Gap(10),
-            Text(
-              title,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const Spacer(),
-            Icon(Icons.chevron_right),
-          ],
-        ),
       ),
     );
   }

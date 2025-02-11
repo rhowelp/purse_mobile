@@ -26,6 +26,7 @@ class _HomepageViewState extends State<HomepageView> {
       extendBody: true,
       backgroundColor: ColorPalette.homeBackgroundColor,
       bottomNavigationBar: FloatingNavbar(
+        backgroundColor: Colors.white,
         onTap: (int val) => setState(() {
           pageController.animateToPage(
             val,
