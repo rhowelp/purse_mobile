@@ -3,6 +3,7 @@ import 'package:iconly/iconly.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
 import 'package:purse_mobile/core/widgets/floating_navbar.dart';
 import 'package:purse_mobile/core/widgets/floating_navbar_item.dart';
+import 'package:purse_mobile/features/accounts/presentation/accounts_view.dart';
 import 'package:purse_mobile/features/budgets/presentation/budgets_view.dart';
 import 'package:purse_mobile/features/dashboard/presentation/dashboard_view.dart';
 import 'package:purse_mobile/features/transactions/presentation/transactions_view.dart';
@@ -62,9 +63,7 @@ class _HomepageViewState extends State<HomepageView> {
             DashboardView(),
             BudgetsView(),
             TransactionsView(),
-            Center(
-              child: Text('Accounts'),
-            ),
+            AccountsView(),
             Center(
               child: Text('Settings'),
             ),

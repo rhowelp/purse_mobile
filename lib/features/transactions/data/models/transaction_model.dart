@@ -5,7 +5,7 @@ class Transaction {
   final String location;
   final double amount;
   final String type; // Digital, Cash, Credit
-  final String icon;
+  final String icon; 
 
   Transaction({
     required this.title,
