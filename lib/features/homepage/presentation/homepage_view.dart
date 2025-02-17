@@ -6,6 +6,7 @@ import 'package:purse_mobile/core/widgets/floating_navbar_item.dart';
 import 'package:purse_mobile/features/accounts/presentation/accounts_view.dart';
 import 'package:purse_mobile/features/budgets/presentation/budgets_view.dart';
 import 'package:purse_mobile/features/dashboard/presentation/dashboard_view.dart';
+import 'package:purse_mobile/features/settings/presentation/settings_view.dart';
 import 'package:purse_mobile/features/transactions/presentation/transactions_view.dart';
 
 class HomepageView extends StatefulWidget {
@@ -46,7 +47,7 @@ class _HomepageViewState extends State<HomepageView> {
               'assets/icons/center_navbar.png',
             ),
           ),
-          FloatingNavbarItem(icon: IconlyBold.profile, title: 'Accounts'),
+          FloatingNavbarItem(icon: IconlyBold.wallet, title: 'Accounts'),
           FloatingNavbarItem(icon: IconlyBold.setting, title: 'Settings'),
         ],
       ),
@@ -64,9 +65,7 @@ class _HomepageViewState extends State<HomepageView> {
             BudgetsView(),
             TransactionsView(),
             AccountsView(),
-            Center(
-              child: Text('Settings'),
-            ),
+            SettingsView(),
           ],
         ),
       ),
