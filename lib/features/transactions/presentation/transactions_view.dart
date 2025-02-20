@@ -3,12 +3,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
+import 'package:purse_mobile/core/enums/enums.dart';
 import 'package:purse_mobile/features/transactions/data/models/transaction_model.dart';
-import 'package:purse_mobile/features/transactions/presentation/widgets/account_bottom_sheet.dart';
-import 'package:purse_mobile/features/transactions/presentation/widgets/category_bottom_sheet.dart';
-import 'package:purse_mobile/features/transactions/presentation/widgets/date_bottom_sheet.dart';
-
-enum BottomSheetType { category, dateFilter, account }
+import 'package:purse_mobile/core/widgets/account_bottom_sheet.dart';
+import 'package:purse_mobile/core/widgets/category_bottom_sheet.dart';
+import 'package:purse_mobile/core/widgets/date_bottom_sheet.dart';
 
 class TransactionsView extends StatefulWidget {
   const TransactionsView({super.key});
