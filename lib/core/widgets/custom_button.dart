@@ -12,10 +12,10 @@ class CustomButton extends StatelessWidget {
     this.gradient,
     this.boxBorder,
     required this.onTap,
-    required this.buttonText,
+    this.buttonText = '',
   });
 
-  final String buttonText;
+  final String? buttonText;
   final Widget? child;
   final Function() onTap;
   final double? buttonHeight;
@@ -38,17 +38,17 @@ class CustomButton extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          child: child ??
-              Center(
-                child: Text(
-                  buttonText,
+          child: Center(
+            child: child ??
+                Text(
+                  buttonText ?? '',
                   style: TextStyle(
                     color: titleColor ?? Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ),
                 ),
-              ),
+          ),
         ),
       ),
     );

@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:purse_mobile/core/domain/constants/color_palette.dart';
@@ -9,6 +8,7 @@ import 'package:purse_mobile/core/enums/enums.dart';
 import 'package:purse_mobile/core/widgets/account_bottom_sheet.dart';
 import 'package:purse_mobile/core/widgets/category_bottom_sheet.dart';
 import 'package:purse_mobile/core/widgets/date_bottom_sheet.dart';
+import 'package:purse_mobile/features/budgets/presentation/add_budgets.dart';
 
 class BudgetsView extends StatefulWidget {
   const BudgetsView({super.key});
@@ -63,7 +63,9 @@ class _BudgetsViewState extends State<BudgetsView> {
       floatingActionButton: FloatingActionButton(
         shape: CircleBorder(),
         backgroundColor: ColorPalette.primary,
-        onPressed: () {},
+        onPressed: () {
+          context.pushNamed(AddBudgets.routeName);
+        },
         child: Icon(
           Icons.add,
           color: Colors.white,

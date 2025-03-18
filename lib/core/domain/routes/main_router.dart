@@ -5,6 +5,9 @@ import 'package:purse_mobile/features/authentication/presentation/authentication
 import 'package:purse_mobile/features/authentication/presentation/screens/forgot_password_view.dart';
 import 'package:purse_mobile/features/authentication/presentation/screens/login_view.dart';
 import 'package:purse_mobile/features/authentication/presentation/screens/signup_view.dart';
+import 'package:purse_mobile/features/budgets/presentation/add_budgets.dart';
+import 'package:purse_mobile/features/budgets/presentation/add_budget_item.dart';
+import 'package:purse_mobile/features/budgets/presentation/sub_screens/categories.dart';
 import 'package:purse_mobile/features/homepage/presentation/homepage_view.dart';
 import 'package:purse_mobile/features/splash_view/presentation/splash_view.dart';
 
@@ -61,6 +64,23 @@ class MainRouter {
           path: HomepageView.route,
           name: HomepageView.routeName,
           builder: (context, state) => const HomepageView(),
+        ),
+        GoRoute(
+          path: AddBudgets.route,
+          name: AddBudgets.routeName,
+          builder: (context, state) => const AddBudgets(),
+          routes: [
+            GoRoute(
+              path: AddBudgetItem.route,
+              name: AddBudgetItem.routeName,
+              builder: (context, state) => const AddBudgetItem(),
+            ),
+            GoRoute(
+              path: BudgetCategories.route,
+              name: BudgetCategories.routeName,
+              builder: (context, state) => const BudgetCategories(),
+            ),
+          ],
         ),
       ],
     );
